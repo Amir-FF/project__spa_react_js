@@ -1,43 +1,36 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.scss";
 import { BrowserRouter, Route, Routes } from "react-router";
-import Header from "./Components/Header";
-import Home from "./pages/Home";
-import Users from "./pages/users/Users";
-import Posts from "./pages/posts/Posts";
-import Post from "./pages/posts/Post";
-import { Container, Row } from "react-bootstrap";
-import NotFound from "./pages/NotFound";
-import User from "./pages/users/User";
+import MainLayout from "./layouts/MainLayout";
+import HomePage from "./pages/HomePage";
+import NotFoundPage from "./pages/NotFoundPage";
+import PostDetailPage from "./pages/posts/PostDetailPage";
+import PostsPage from "./pages/posts/PostsPage";
+import UserDetailPage from "./pages/users/UserDetailPage";
+import UsersPage from "./pages/users/UsersPage";
+import CreatePostPage from "./pages/posts/CreatePostPage";
+import EditPostPage from "./pages/posts/EditPostPage";
 
-function App() {
-  return (
-    <>
-      <BrowserRouter>
-        <Header />
+const App = () => (
+  <BrowserRouter>
+    <Routes>
+      <Route element={<MainLayout />}>
+        <Route index element={<HomePage />} />
 
-        <Container fluid className="mt-6 px-4">
-          <Row>
-            <Routes>
-              <Route path="/" element={<Home />} />
+        <Route path="users">
+          <Route index element={<UsersPage />} />
+          <Route path=":id" element={<UserDetailPage />} />
+        </Route>
 
-              <Route path="/users">
-                <Route index element={<Users />} />
-                <Route path=":id" element={<User />} />
-              </Route>
+        <Route path="posts">
+          <Route index element={<PostsPage />} />
+          <Route path=":id" element={<PostDetailPage />} />
+          <Route path="create" element={<CreatePostPage />} />
+          <Route path="edit/:id" element={<EditPostPage />} />
+        </Route>
 
-              <Route path="/posts">
-                <Route index element={<Posts />} />
-                <Route path=":id" element={<Post />} />
-              </Route>
-
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </Row>
-        </Container>
-      </BrowserRouter>
-    </>
-  );
-}
+        <Route path="*" element={<NotFoundPage />} />
+      </Route>
+    </Routes>
+  </BrowserRouter>
+);
 
 export default App;

@@ -1,16 +1,47 @@
-# React + Vite
+# SPA React App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A small single-page application built with React, Vite, React Router and React Bootstrap.
+Data comes from [JSONPlaceholder](https://jsonplaceholder.typicode.com).
 
-Currently, two official plugins are available:
+## Getting started
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```bash
+npm install
+npm run dev      # start the dev server
+npm run build    # production build
+npm run lint     # run ESLint
+```
 
-## React Compiler
+## Project structure
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```
+src/
+├── main.jsx              # entry point
+├── App.jsx               # router + route table
+├── constants/            # API endpoints, route paths
+├── services/             # http.js (request helper), postService.js (create/update/delete)
+├── hooks/                # useFetch (GET), useToasts (toast list state)
+├── utils/                # small helpers (validators)
+├── layouts/              # MainLayout, Header
+├── components/
+│   ├── common/           # LoadingSpinner, ErrorMessage, PageTitle, ToastList
+│   ├── users/            # UserCard
+│   └── posts/            # PostCard, PostForm
+├── pages/                # one component per route (*Page.jsx)
+│   ├── users/
+│   └── posts/
+└── styles/main.scss      # Bootstrap + custom styles
+```
 
-## Expanding the ESLint configuration
+## Routes
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+| Path               | Page             |
+| ------------------ | ---------------- |
+| `/`                | `HomePage`       |
+| `/users`           | `UsersPage`      |
+| `/users/:id`       | `UserDetailPage` |
+| `/posts`           | `PostsPage`      |
+| `/posts/:id`       | `PostDetailPage` |
+| `/posts/create`    | `CreatePostPage` |
+| `/posts/edit/:id`  | `EditPostPage`   |
+| `*`                | `NotFoundPage`   |
