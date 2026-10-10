@@ -47,4 +47,4 @@ src/
 | `*`                | `NotFoundPage`   |
 
 ## 🚀 Live Demo
-You can view the live version of this project here: [**View Live Site**]([[https://project--meal-plan.amir-computer-04-ir.workers.dev/](https://project-spa-react-js.amir-computer-04-ir.workers.dev/)]
+You can view the live version of this project here: [**View Live Site**](https://project-spa-react-js.amir-computer-04-ir.workers.dev/)]
