@@ -1,4 +1,4 @@
-# SPA React App
+# SPA React JS
 
 A small single-page application built with React, Vite, React Router and React Bootstrap.
 Data comes from [JSONPlaceholder](https://jsonplaceholder.typicode.com).
@@ -45,3 +45,6 @@ src/
 | `/posts/create`    | `CreatePostPage` |
 | `/posts/edit/:id`  | `EditPostPage`   |
 | `*`                | `NotFoundPage`   |
+
+## 🚀 Live Demo
+You can view the live version of this project here: [**View Live Site**]([[https://project--meal-plan.amir-computer-04-ir.workers.dev/](https://project-spa-react-js.amir-computer-04-ir.workers.dev/)]
